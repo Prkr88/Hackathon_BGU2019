@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Prepary</class>
+ <widget class="QMainWindow" name="Prepary">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1299</width>
+    <height>968</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Prepary | How you Learn</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>-48</y>
+      <width>1291</width>
+      <height>1061</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Back_hack/exam_multiplechoice.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="uplaod_pic">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>40</y>
+      <width>1021</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget{
+	font: 10pt &quot;RelishPro 2&quot;;
+    color: #BEBEBE;
+    border: 2px solid #555;
+    border-radius: 20px;
+    border-style: outset;
+    padding: 5px;
+}
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="course_num">
+     <attribute name="title">
+      <string>מספר קורס</string>
+     </attribute>
+     <widget class="QComboBox" name="cn_comboBox">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>110</y>
+        <width>351</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QComboBox {
+
+ color: #BEBEBE; 
+border: 2px solid #cccccc;
+border-radius: 10px;
+	font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+
+}
+
+
+QComboBox::drop-down {
+color: #BEBEBE; 
+border: 2px solid #cccccc;
+border-radius: 10px;
+background-image: url(:/back1/icon_in_the_input_box_drop_down_arrow_511486.png);
+}
+
+</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>201.1.9571</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>201.1.2371</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>201.1.9621</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>201.1.9721</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="Search">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>110</y>
+        <width>187</width>
+        <height>57</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	font: 10pt &quot;RelishPro 2&quot;;
+    color: #F5F5F5;
+    border: 2px solid #555;
+    border-radius: 20px;
+    border-style: outset;
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 	#ff920c, stop: 1 #db6008
+        );
+    padding: 5px;
+    }
+
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 #ffa62b, stop: 1 #ff920c
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 #fff, stop: 1 #ddd
+        );
+    }</string>
+      </property>
+      <property name="text">
+       <string>חפש</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="free_text">
+     <attribute name="title">
+      <string>טקסט חופשי</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>העלה תמונה</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QListWidget" name="listWidget_results">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>400</y>
+      <width>411</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget{
+	font: 10pt &quot;RelishPro 2&quot;;
+    color: #BEBEBE;
+    border: 2px solid #555;
+    border-radius: 20px;
+    border-style: outset;
+    background: #F5F5F5;
+    padding: 5px;
+
+}</string>
+    </property>
+    <property name="textElideMode">
+     <enum>Qt::ElideMiddle</enum>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::ListMode</enum>
+    </property>
+    <item>
+     <property name="text">
+      <string>1</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="show_png">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>620</y>
+      <width>187</width>
+      <height>57</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font: 10pt &quot;RelishPro 2&quot;;
+    color: #F5F5F5;
+    border: 2px solid #555;
+    border-radius: 20px;
+    border-style: outset;
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 	#68abfd, stop: 1 #157efb
+        );
+    padding: 5px;
+    }
+
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 #cde3fe, stop: 1 #68abfd
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 #fff, stop: 1 #ddd
+        );
+    }</string>
+    </property>
+    <property name="text">
+     <string>הצג</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources/rsc_p2s.qrc"/>
+ </resources>
+ <connections/>
+</ui>

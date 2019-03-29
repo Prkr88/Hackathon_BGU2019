@@ -1,22 +1,7 @@
 import cv2
 import numpy as np
 
-'''
-#                 ######    ######          
-#                 #::::#    #::::#          
-#                 #::::#    #::::#          
-#            ######::::######::::######     
-#            #::::::::::::::::::::::::#     ██╗  ██╗ █████╗ ███████╗██╗  ██╗████████╗ █████╗  ██████╗         ██████╗ ██╗███████╗ ██████╗██╗   ██╗██╗████████╗███████╗
-#            ######::::######::::######     ██║  ██║██╔══██╗██╔════╝██║  ██║╚══██╔══╝██╔══██╗██╔════╝         ██╔══██╗██║██╔════╝██╔════╝██║   ██║██║╚══██╔══╝██╔════╝
-#                 #::::#    #::::#          ███████║███████║███████╗███████║   ██║   ███████║██║  ███╗        ██████╔╝██║███████╗██║     ██║   ██║██║   ██║   ███████╗
-#                 #::::#    #::::#          ██╔══██║██╔══██║╚════██║██╔══██║   ██║   ██╔══██║██║   ██║        ██╔══██╗██║╚════██║██║     ██║   ██║██║   ██║   ╚════██║
-#            ######::::######::::######     ██║  ██║██║  ██║███████║██║  ██║   ██║   ██║  ██║╚██████╔╝        ██████╔╝██║███████║╚██████╗╚██████╔╝██║   ██║   ███████║
-#            #::::::::::::::::::::::::#     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝         ╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝   ╚═╝   ╚══════╝
-#            ######::::######::::######     
-#                 #::::#    #::::#             
-#                 #::::#    #::::#             
-#                 ######    ######
-'''
+
 def process_rgb(rgb, r, g, b):
     gray = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY);
     morphKernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
@@ -45,22 +30,28 @@ def process_rgb(rgb, r, g, b):
     return rgb, x_list, y_list, w_list, h_list
 
 
-picName = 'page'
-large = cv2.imread(picName + '.png')
-rgb = cv2.pyrDown(large)
-rgb_original = cv2.pyrDown(large)
+index = 1
+while index < 2:
+    path = 'pdfs\\Thermodynamics\\materials.365.1.2111\\2017B\\'
+    picName = "2017B"
+    # picName = "2017A" + "_Page_" + str(index)
+    large = cv2.imread(path + picName + '.png')
+    rgb = cv2.pyrDown(large)
+    rgb_original = cv2.pyrDown(large)
 
-rgb, x, y, w, h = process_rgb(rgb, 0, 255, 0)
-rgb, x, y, w, h = process_rgb(rgb, 220, 220, 220)
-rgb, x, y, w, h = process_rgb(rgb, 100, 220, 220)
-rgb, x, y, w, h = process_rgb(rgb, 0, 0, 255)
-rgb, x, y, w, h = process_rgb(rgb, 0, 0, 0)
+    rgb, x, y, w, h = process_rgb(rgb, 0, 255, 0)
+    rgb, x, y, w, h = process_rgb(rgb, 220, 220, 220)
+    rgb, x, y, w, h = process_rgb(rgb, 100, 220, 220)
+    rgb, x, y, w, h = process_rgb(rgb, 0, 0, 255)
+    rgb, x, y, w, h = process_rgb(rgb, 0, 255, 0)
+    rgb, x, y, w, h = process_rgb(rgb, 0, 0, 0)
 
-i = len(x) - 1
-for xi in x:
-    if i + 1< len(x) and x[i]:
-        crop_img = rgb_original[y[i]:y[i] + h[i], x[i]:x[i] + w[i]]
-        cv2.imwrite(picName + str(i + 1) + '.png', crop_img)
+    i = len(x) - 1
+    for xi in x:
+        if h[i] * w[i] > 5400:
+            crop_img = rgb_original[y[i]:y[i] + h[i], x[i]:x[i] + w[i]]
+            cv2.imwrite('output_pictures\\' + picName + str(i + 1) + '.png', crop_img)
         i -= 1
 
-cv2.imwrite('page_out.png', rgb)
+    cv2.imwrite('output_pictures\\' + 'page_out' + str(index) + '.png', rgb)
+    index += 1
